@@ -38,8 +38,8 @@ h1 {
  */
 
 .deck {
-    width: 34vw;
-    min-height: 39vw;
+    width: 37vw;
+    height: 39vw;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 1.5vw;
     border-radius: 10px;
@@ -92,7 +92,7 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 29vw;
+    width: 35vw;
     margin-bottom: 0.7vw;
     font-size: calc(8px + (17 - 8) * ((100vw - 300px) / (1600 - 300)));
 }
@@ -126,7 +126,7 @@ h1 {
 }
 
 /*
- * Styles for the popup modal // credit: https://www.w3schools.com/howto/howto_css_modals.asp
+ * Styles for the popup modal, credit: https://www.w3schools.com/howto/howto_css_modals.asp
  */
  /* font size equation credit: https://css-tricks.com/snippets/css/fluid-typography/ */
 
@@ -180,4 +180,27 @@ h1 {
   cursor: pointer;
   margin: 5px;
   vertical-align: middle;
+}
+
+/* Media queries for flexibility */
+
+@media screen and (max-width: 1030px) {
+  .container .score-panel {
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .deck {
+    width: 59vw;
+    height: 61vw;
+  }
+  .container .deck .card {
+    height: 12vw;
+    width: 12vw;
+  }
 }
