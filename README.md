@@ -11,4 +11,4 @@ I've modified the premade HTML and CSS, but my **primary goal** was to write **_
 + The game can be restarted anytime.
 + Once all cards are matched the game displays results summary and offers to start the game over.
 
-## Please feel free to test run the game by clicking **[here](https://WKDavid.github.io/CardMatchingGame)** 
+## Please feel free to test run the game by clicking **[here](https://wkdavid.github.io/CardMatchingGame/)**
