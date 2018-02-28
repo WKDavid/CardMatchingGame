@@ -22,15 +22,17 @@ let totalHours = 0;
 
 // Starting the game code by calling the display function and starting the timer
 display();
-setInterval(postTime, 1000);
 repeat.addEventListener('click', newGame);
 
-// @description two functions responsible for posting time to HTML in 00:00 format
+// @description three functions responsible for starting the timer and posting time to HTML in 00:00 format
 // idea credit: https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+let startTimer = once(function() {
+   setInterval(postTime, 1000);
+});
 function postTime() {
   ++totalSeconds;
   seconds.innerHTML = timerCheck(totalSeconds % 60);
-  minutes.innerHTML = timerCheck(parseInt(totalSeconds / 60));
+  minutes.innerHTML = timerCheck(parseInt(totalSeconds / 60 % 60));
   totalMinutes = timerCheck(parseInt(totalSeconds / 60));
   hours.innerHTML = timerCheck(parseInt(totalMinutes / 60));
   totalHours = timerCheck(parseInt(totalMinutes / 60));
@@ -61,6 +63,7 @@ function showCards() {
     event.target.classList.toggle("show");
     event.target.classList.toggle("open");
     event.target.classList.toggle("deactivate");
+    startTimer();
     turnedCards.push(this);
     counterCheck();
 }
@@ -156,4 +159,16 @@ function shuffle(array) {
         array[randomIndex] = temporaryValue;
     }
     return array;
+}
+
+// function responsible for running code only once, credit: https://davidwalsh.name/javascript-once
+function once(fn, context) {
+	var result;
+	return function() {
+		if(fn) {
+			result = fn.apply(context || this, arguments);
+			fn = null;
+		}
+		return result;
+	};
 }
